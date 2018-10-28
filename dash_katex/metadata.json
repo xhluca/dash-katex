@@ -1,0 +1,78 @@
+{
+  "src/lib/components/DashKatex.react.js": {
+    "description": "ExampleComponent is an example component.\r\nIt takes a property, `label`, and\r\ndisplays it.\r\nIt renders an input with the property `value`\r\nwhich is editable by the user.",
+    "displayName": "DashKatex",
+    "methods": [
+      {
+        "name": "renderKatex",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this component in Dash callbacks"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called whenever any of the\r\nproperties change"
+      },
+      "expression": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Expression to be rendered"
+      },
+      "displayMode": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If true the math will be rendered in display mode, which will put the\r\nmath in display style (so \\int and \\sum are large, for example), and\r\nwill center the math on the page on its own line. If false the math\r\nwill be rendered in inline mode. (default: false)",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "throwOnError": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If true (the default), KaTeX will throw a ParseError when it encounters\r\nan unsupported command or invalid LaTeX. If false, KaTeX will render\r\nunsupported commands as text, and render invalid LaTeX as its source\r\ncode with hover text giving the error, in the color given by errorColor.",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "errorColor": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A color string given in the format \"#XXX\" or \"#XXXXXX\". This option\r\ndetermines the color that unsupported commands and invalid LaTeX are\r\nrendered in when throwOnError is set to false. (default: #cc0000)",
+        "defaultValue": {
+          "value": "'#cc0000'",
+          "computed": false
+        }
+      },
+      "macros": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A collection of custom macros. Each macro is a property with a name\r\n like \\name (written \"\\\\name\" in JavaScript) which maps to a string\r\n that describes the expansion of the macro, or a function that accepts\r\n an instance of MacroExpander as first argument and returns the\r\n expansion as a string."
+      }
+    }
+  }
+}
