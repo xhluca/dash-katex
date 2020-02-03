@@ -17,24 +17,29 @@ app.layout = html.Div([
     dcc.RadioItems(
         id='radio-item-display-mode',
         options=[
-            {'label': 'True (Display/Equation Mode)', 'value': True},
-            {'label': "False (Inline Mode)", 'value': False}
-        ]
+            {'label': "Display/Equation Mode", 'value': 'Display'},
+            {'label': "Inline Mode", 'value': 'Inline'}
+        ],
+        value = 'Inline',
     ),
+
 
     html.Div("Throw on error:"),
     dcc.RadioItems(
         id='radio-item-throw-on-error',
         options=[
-            {'label': 'True', 'value': True},
-            {'label': "False", 'value': False}
-        ]
+            {'label': "Throw Errors", 'value': "Throw"},
+            {'label': "Pass Error", 'value': "Pass"}
+        ],
+        value = "Pass",
     ),
 
     html.Div('Here is some latex:'),
     dash_katex.DashKatex(
         id='katex',
-        expression=""
+        expression="",
+        displayMode = True,
+        throwOnError = False,
     )
 ])
 
@@ -42,19 +47,19 @@ app.layout = html.Div([
 @app.callback(Output('katex', 'expression'),
               [Input('input-latex-expression', 'value')])
 def updateExpression(value):
-    return value
+    return str(value)
 
 
 @app.callback(Output('katex', 'displayMode'),
               [Input('radio-item-display-mode', 'value')])
 def updateDisplayMode(value):
-    return value
+    return value == "Display"
 
 
 @app.callback(Output('katex', 'throwOnError'),
               [Input('radio-item-throw-on-error', 'value')])
 def updatethrowOnError(value):
-    return value
+    return value == "Throw"
 
 
 if __name__ == '__main__':
